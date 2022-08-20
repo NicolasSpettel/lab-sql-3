@@ -20,7 +20,7 @@ select datediff(max(last_update), min(rental_date)) as 'days since first rental'
 -- I decided to compare the very first rental to the last update 
 
 -- Show rental info with additional columns month and weekday. Get 20.
-select *, date_format(rental_date, '%b') as month, date_format(rental_date,'%a') as weekday from rental;
+select *, date_format(rental_date, '%b') as month, date_format(rental_date,'%a') as weekday from rental limit 20;
 
 -- Add an additional column day_type with values 'weekend' and 'workday' depending on the rental day of the week.
 select *, date_format(rental_date, '%b') as month, date_format(rental_date,'%a') as weekday, if(date_format(rental_date,'%w') in (0,6) , 'weekend', 'weekday')  as day_type from rental;
